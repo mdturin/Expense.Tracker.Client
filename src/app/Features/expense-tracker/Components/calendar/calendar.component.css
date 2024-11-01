@@ -32,6 +32,9 @@
 
 .calendar-body {
   padding: 10px;
+  height: 100%;
+  text-align: center; 
+  justify-content: center; 
 }
 
 .day-names {
@@ -45,29 +48,94 @@
 .day-name {
   padding: 5px 0;
 }
-
+/* Grid container for dates */
 .dates {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   text-align: center;
+  justify-content: center;
+  gap: 1px; /* Gap size for borders */
+  background-color: #ddd; /* Gap color acting as borders */
+  height: 75%; /* Existing class */
 }
 
-.dates div {
-  padding: 8px 0;
-  margin-bottom: 5px;
+/* Individual date cells */
+.date-item {
+  background-color: #fff; /* Date cell background */
+  border: none; /* Remove individual borders to rely on grid gap */
+  padding: 10px;
+  box-sizing: border-box;
   cursor: pointer;
-  border-radius: 4px;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
-.dates div.other-month {
-  color: #ccc;
+/* Date number styling */
+.date-number {
+  font-size: 1.2em; /* Increase font size for prominence */
+  font-weight: bold; /* Make the date number bold */
+  z-index: 1; /* Ensure it stays above any overlapping elements */
 }
 
-.dates div.today {
-  background-color: #007bff;
-  color: white;
-}
-
-.dates div:hover {
+/* Hover effect */
+.date-item:hover {
   background-color: #f0f0f0;
+}
+
+/* Other month dates */
+.date-item.other-month {
+  color: #aaa;
+}
+
+/* Today's date */
+.date-item.today {
+  border: 1px solid #007bff; /* Adds a distinct border */
+  background-color: #e6f0ff; /* Optional: Highlight background */
+}
+
+/* Amount container */
+.amount {
+  position: absolute; /* Allows precise placement within the date-item */
+  bottom: 5px; /* Distance from the bottom edge */
+  right: 5px; /* Distance from the right edge */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 0.8em; /* Smaller font size for the amount */
+  color: #28a745; /* Color for the amount text and icon */
+}
+
+/* Small text and icon styling */
+.amount small {
+  margin-right: 2px;
+}
+
+.amount i {
+  color: inherit; /* Inherits the color from .amount */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .date-number {
+    font-size: 1em;
+  }
+
+  .amount {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 480px) {
+  .date-number {
+    font-size: 0.9em;
+  }
+
+  .amount {
+    font-size: 0.6em;
+  }
 }

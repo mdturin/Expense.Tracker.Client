@@ -1,22 +1,29 @@
 <!-- calendar.component.html -->
-<div class="calendar">
+<div class="calendar h-100">
   <div class="calendar-header">
     <button (click)="prevMonth()">&lt;</button>
     <div class="month-year">{{ currentMonth | date : "MMMM yyyy" }}</div>
     <button (click)="nextMonth()">&gt;</button>
   </div>
-  <div class="calendar-body">
+  <div class="calendar-body h-100">
     <div class="day-names">
       <div *ngFor="let day of dayNames" class="day-name">{{ day }}</div>
     </div>
-    <div class="dates">
+    <div class="dates h-75">
       <div
         *ngFor="let date of calendarDates"
         [class.other-month]="date.otherMonth"
         [class.today]="date.isToday"
+        class="date-item"
         (click)="selectDate(date)"
+        tabindex="0"
+        role="button"
       >
-        {{ date.date | date : "d" }}
+        <span class="date-number">{{ date.date | date : "d" }}</span>
+        <div class="amount">
+          <small>0</small>
+          <i class="fas fa-bangladeshi-taka-sign"></i>
+        </div>
       </div>
     </div>
   </div>

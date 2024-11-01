@@ -1,16 +1,10 @@
-<div
-  class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
-  style="width: 280px; height: 100%"
->
-  <a
-    href="/"
-    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark h-100">
+  <p
+    class="d-flex align-items-center justify-content-center mb-3 mb-md-0 text-white text-decoration-none"
   >
-    <svg class="bi me-2" width="40" height="32">
-      <use xlink:href="#bootstrap"></use>
-    </svg>
     <span class="fs-4">{{ header }}</span>
-  </a>
+  </p>
+
   <hr />
   <ul class="nav nav-pills flex-column mb-auto">
     @for (item of items; track $index) {
@@ -18,7 +12,7 @@
       <a
         routerLink="{{ item.route }}"
         routerLinkActive="router-link-active"
-        class="nav-link"
+        class="nav-link text-white text-decoration-none"
         aria-current="page"
       >
         <i [ngClass]="item.icon"></i>

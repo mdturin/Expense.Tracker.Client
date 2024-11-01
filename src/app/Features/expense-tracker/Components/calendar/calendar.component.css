@@ -1,0 +1,73 @@
+/* calendar.component.css */
+
+.calendar {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 1px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.calendar-header .month-year {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.calendar-body {
+  padding: 10px;
+}
+
+.day-names {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.day-name {
+  padding: 5px 0;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.dates div {
+  padding: 8px 0;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.dates div.other-month {
+  color: #ccc;
+}
+
+.dates div.today {
+  background-color: #007bff;
+  color: white;
+}
+
+.dates div:hover {
+  background-color: #f0f0f0;
+}

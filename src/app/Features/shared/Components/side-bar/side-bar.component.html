@@ -9,13 +9,18 @@
     <svg class="bi me-2" width="40" height="32">
       <use xlink:href="#bootstrap"></use>
     </svg>
-    <span class="fs-4">{{header}}</span>
+    <span class="fs-4">{{ header }}</span>
   </a>
   <hr />
   <ul class="nav nav-pills flex-column mb-auto">
     @for (item of items; track $index) {
-      <li class="nav-item">
-      <a href="{{item.route}}" routerLinkActive="router-link-active"  class="nav-link" aria-current="page">
+    <li class="nav-item">
+      <a
+        routerLink="{{ item.route }}"
+        routerLinkActive="router-link-active"
+        class="nav-link"
+        aria-current="page"
+      >
         <i [ngClass]="item.icon"></i>
         {{ item.title }}
       </a>

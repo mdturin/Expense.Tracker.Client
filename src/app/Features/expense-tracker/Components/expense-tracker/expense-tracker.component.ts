@@ -10,7 +10,7 @@ export class ExpenseTrackerComponent {
   items: SideBarItem[] = [
     {
       icon: 'fas fa-calendar-days',
-      route: '/calender',
+      route: 'calender',
       title: 'Calendar'
     }
   ]

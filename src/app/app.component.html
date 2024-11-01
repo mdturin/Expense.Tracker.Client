@@ -1,9 +1,9 @@
 <app-nav-bar></app-nav-bar>
 <div class="row h-100 w-100">
-    <div class="col-md-3">
+    <div class="col-md-3" [ngClass]="{'hide': !sideBarIsOpend}">
         <app-side-bar />
     </div>
-    <div class="col-md-9">
+    <div class="col-auto">
         <router-outlet />
     </div>
 </div>

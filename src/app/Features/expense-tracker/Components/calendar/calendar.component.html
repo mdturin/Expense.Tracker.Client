@@ -1,30 +1,40 @@
-<!-- calendar.component.html -->
-<div class="calendar h-100">
-  <div class="calendar-header">
-    <button (click)="prevMonth()">&lt;</button>
-    <div class="month-year">{{ currentMonth | date : "MMMM yyyy" }}</div>
-    <button (click)="nextMonth()">&gt;</button>
-  </div>
-  <div class="calendar-body h-100">
-    <div class="day-names">
-      <div *ngFor="let day of dayNames" class="day-name">{{ day }}</div>
+<div class="row h-100 w-100 m-0 g-0">
+  <!-- Calendar Column -->
+  <div class="calendar col-12 col-md-9" [ngClass]="{'col-md-12': !selectedDate}">
+    <div class="calendar-header">
+      <button (click)="prevMonth()">&lt;</button>
+      <div class="month-year">{{ currentMonth | date : "MMMM yyyy" }}</div>
+      <button (click)="nextMonth()">&gt;</button>
     </div>
-    <div class="dates h-75">
-      <div
-        *ngFor="let date of calendarDates"
-        [class.other-month]="date.otherMonth"
-        [class.today]="date.isToday"
-        class="date-item"
-        (click)="selectDate(date)"
-        tabindex="0"
-        role="button"
-      >
-        <span class="date-number">{{ date.date | date : "d" }}</span>
-        <div class="amount">
-          <small>0</small>
-          <i class="fas fa-bangladeshi-taka-sign"></i>
+
+    <div class="calendar-body h-100">
+      <div class="day-names">
+        <div *ngFor="let day of dayNames" class="day-name">{{ day }}</div>
+      </div>
+      <div class="dates h-75">
+        <div
+          *ngFor="let date of calendarDates"
+          [class.other-month]="date.otherMonth"
+          [class.today]="date.isToday"
+          class="date-item"
+          (click)="selectDate(date)"
+          tabindex="0"
+          role="button"
+        >
+          <span class="date-number">{{ date.date | date : "d" }}</span>
+          <div class="amount">
+            <small>0</small>
+            <i class="fas fa-bangladeshi-taka-sign"></i>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Cart Column Wrapped in a Bootstrap Column -->
+  @if (selectedDate) {
+  <div class="col-12 col-md-3">
+    <app-cart [selectedDate]="selectedDate.date"></app-cart>
+  </div>
+  }
 </div>

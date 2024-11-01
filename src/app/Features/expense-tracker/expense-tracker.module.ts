@@ -6,9 +6,10 @@ import { SharedModule } from '../shared/shared.module';
 import { CalendarComponent } from './Components/calendar/calendar.component';
 import { SideBar } from '../shared/Models/side-bar.model';
 import { SideBarStoreService } from '../../Services/side-bar-store.service';
+import { CartComponent } from './Components/cart/cart.component';
 
 @NgModule({
-  declarations: [ExpenseTrackerComponent, CalendarComponent],
+  declarations: [ExpenseTrackerComponent, CalendarComponent, CartComponent],
   imports: [CommonModule, ExpenseTrackerRoutingModule, SharedModule],
 })
 export class ExpenseTrackerModule {

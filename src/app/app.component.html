@@ -1,12 +1,12 @@
 <app-nav-bar></app-nav-bar>
 <div class="row h-100 w-100 m-0 g-0">
     <!-- Sidebar -->
-    <div class="col-md-3" [ngClass]="{ 'hide': !sideBarIsOpend }">
+    <div class="col-12 col-md-3" [ngClass]="{ 'hide': !sideBarIsOpend }">
       <app-side-bar></app-side-bar>
     </div>
 
     <!-- Main Content -->
-    <div class="col-md-9" [ngClass]="{ 'col-md-12': !sideBarIsOpend }">
+    <div class="col-12 col-md-9" [ngClass]="{ 'col-md-12': !sideBarIsOpend }">
       <router-outlet></router-outlet>
     </div>
 </div>

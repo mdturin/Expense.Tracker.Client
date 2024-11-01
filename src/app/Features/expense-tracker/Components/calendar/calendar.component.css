@@ -1,7 +1,5 @@
 /* calendar.component.css */
-
 .calendar {
-  width: 100%;
   border: 1px solid #ddd;
   border-radius: 1px;
   overflow: hidden;

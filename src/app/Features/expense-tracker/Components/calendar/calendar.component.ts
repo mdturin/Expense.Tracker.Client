@@ -10,12 +10,7 @@ import {
   isSameMonth,
   isToday,
 } from 'date-fns';
-
-interface CalendarDate {
-  date: Date;
-  otherMonth: boolean;
-  isToday: boolean;
-}
+import { CalendarDate } from '../../../shared/Models/calendar-date.model';
 
 @Component({
   selector: 'app-calendar',
@@ -26,6 +21,7 @@ export class CalendarComponent {
   currentMonth: Date = new Date();
   dayNames: string[] = [];
   calendarDates: CalendarDate[] = [];
+  selectedDate?: CalendarDate = undefined;
 
   ngOnInit(): void {
     this.generateDayNames();
@@ -65,6 +61,7 @@ export class CalendarComponent {
 
   selectDate(date: CalendarDate): void {
     // Handle date selection
+    this.selectedDate = date;
     console.log('Selected Date:', date.date);
   }
 }

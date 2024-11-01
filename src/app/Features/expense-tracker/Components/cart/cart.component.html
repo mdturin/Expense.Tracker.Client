@@ -9,7 +9,9 @@
         <li *ngFor="let expense of expenses" class="expense-item">
           <span class="description">{{ expense.description }}</span>
           <span class="details">{{ expense.quantity }} {{ expense.unit }}</span>
-          <span class="amount">{{ expense.amount | currency:'BDT':'symbol':'1.0-0' }}</span>
+          <span class="amount">{{ expense.amount }}
+            <i class="fas fa-bangladeshi-taka-sign"></i>
+          </span>
         </li>
       </ul>
     </div>

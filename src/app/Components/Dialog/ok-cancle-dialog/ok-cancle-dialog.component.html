@@ -16,7 +16,11 @@
 </mat-dialog-content>
 <hr class="m-0" />
 <mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
+  <button class="btn btn-danger" (click)="onCancel()">
+    {{ data.cancleCaption }}
+  </button>
   <span class="spacer"></span>
-  <button mat-button color="primary" (click)="onConfirm()">OK</button>
+  <button class="btn btn-primary" (click)="onConfirm()">
+    {{ data.okCaption }}
+  </button>
 </mat-dialog-actions>

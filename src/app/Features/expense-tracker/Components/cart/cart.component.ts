@@ -3,6 +3,7 @@ import { Expense } from '../../../shared/Models/expense.model';
 import { ExpenseService } from '../../Services/expense.service';
 import { DialogService } from '../../../../Services/dialog.service';
 import { AddExpenseComponent } from '../add-expense/add-expense.component';
+import { DialogModel } from '../../../shared/Models/dialog.model';
 
 @Component({
   selector: 'app-cart',
@@ -29,12 +30,14 @@ export class CartComponent implements OnChanges {
   }
 
   openAddExpense(): void {
+    const model = new DialogModel({
+      title: "Add Expense",
+      component: AddExpenseComponent,
+      okCaption: "Add"
+    });
+
     this.dialogService
-      .showOkCancelDialog({
-        component: AddExpenseComponent,
-        title: 'Expenses',
-        input: {},
-      })
+      .showOkCancelDialog(model, '500px')
       .subscribe({
         next: (result: Expense) => {
           this.expenses.push(result);

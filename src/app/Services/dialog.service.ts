@@ -10,10 +10,10 @@ import { filter, Observable, take } from 'rxjs';
 })
 export class DialogService {
   constructor(private dialog: MatDialog) {}
-  showOkCancelDialog(dialogModel: DialogModel): Observable<any> {
+  showOkCancelDialog(dialogModel: DialogModel, width: string): Observable<any> {
     return this.dialog
       .open(OkCancleDialogComponent, {
-        width: '400px',
+        width: width,
         data: dialogModel,
       })
       .afterClosed()

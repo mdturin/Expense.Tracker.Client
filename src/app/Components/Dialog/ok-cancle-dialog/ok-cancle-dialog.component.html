@@ -1,10 +1,22 @@
-<h2 mat-dialog-title>{{ data.title }}</h2>
+<h2 mat-dialog-title>
+  <span class="dialog-title">{{ data.title }}</span>
+</h2>
 
+<button
+  mat-icon-button
+  (click)="onCancel()"
+  class="close-button"
+  aria-label="Close dialog"
+>
+  <mat-icon>close</mat-icon>
+</button>
+<hr class="m-0" />
 <mat-dialog-content>
-    <ng-template #modal></ng-template>
+  <ng-template #modal></ng-template>
 </mat-dialog-content>
-
-<mat-dialog-actions align="end">
+<hr class="m-0" />
+<mat-dialog-actions>
   <button mat-button (click)="onCancel()">Cancel</button>
+  <span class="spacer"></span>
   <button mat-button color="primary" (click)="onConfirm()">OK</button>
 </mat-dialog-actions>

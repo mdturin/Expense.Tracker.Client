@@ -1,0 +1,34 @@
+h2[mat-dialog-title] {
+    position: relative;
+    margin: 0;
+    padding: 10px 0; /* Adjust padding as needed */
+    text-align: center; /* Center title horizontally */
+  }
+
+.dialog-title {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem; /* Adjust size as needed */
+}
+
+.close-button i {
+  color: #000; /* Adjust color as needed */
+}
+
+mat-dialog-actions {
+    display: flex;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  

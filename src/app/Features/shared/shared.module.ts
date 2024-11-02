@@ -2,8 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MatDialogModule, MatDialogActions } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import {
+  MatDialogModule,
+  MatDialogActions,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCommonModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -13,8 +19,18 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     MatDialogModule,
     MatButtonModule,
+    MatIconModule,
+    MatCommonModule,
   ],
-  exports: [FormsModule, MatDialogModule, MatButtonModule, MatDialogActions],
+  exports: [
+    FormsModule,
+    MatIconModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatDialogActions,
+    MatDialogTitle,
+    MatCommonModule,
+  ],
   providers: [],
 })
 export class SharedModule {}

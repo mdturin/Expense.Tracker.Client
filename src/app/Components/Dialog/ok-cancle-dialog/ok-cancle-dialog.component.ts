@@ -5,7 +5,7 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { DialogModel } from '../../../Features/shared/Models/dialog.model';
 import { SharedModule } from '../../../Features/shared/shared.module';
 import { DialogView } from '../../../Features/shared/Models/dialog-view.model';

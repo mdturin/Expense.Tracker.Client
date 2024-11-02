@@ -5,7 +5,7 @@ import { ExpenseTrackerComponent } from './Components/expense-tracker/expense-tr
 import { SharedModule } from '../shared/shared.module';
 import { CalendarComponent } from './Components/calendar/calendar.component';
 import { SideBar } from '../shared/Models/side-bar.model';
-import { SideBarStoreService } from '../../Services/side-bar-store.service';
+import { SideBarStoreService } from '../../Services/Store/side-bar-store.service';
 import { CartComponent } from './Components/cart/cart.component';
 
 @NgModule({

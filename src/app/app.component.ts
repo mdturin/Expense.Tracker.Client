@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { SharedModule } from './Features/shared/shared.module';
 import { SideBarComponent } from './Components/side-bar/side-bar.component';
-import { ParticleStoreService } from './Services/particle-store.service';
+import { ParticleStoreService } from './Services/Store/particle-store.service';
 import { filter, Subject, takeUntil } from 'rxjs';
 
 @Component({

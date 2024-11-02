@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { SideBarStoreService } from '../../Services/side-bar-store.service';
+import { SideBarStoreService } from '../../Services/Store/side-bar-store.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SideBarItem } from '../../Features/shared/Models/side-bar-item.model';

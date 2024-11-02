@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ParticleStoreService } from '../../Services/particle-store.service';
+import { ParticleStoreService } from '../../Services/Store/particle-store.service';
 import { filter, Subject, takeUntil } from 'rxjs';
 
 @Component({

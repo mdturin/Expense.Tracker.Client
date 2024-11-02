@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StateService } from './state.service';
-import { SideBar } from '../Features/shared/Models/side-bar.model';
+import { SideBar } from '../../Features/shared/Models/side-bar.model';
 
 const initialState: SideBar = {
   header: '',

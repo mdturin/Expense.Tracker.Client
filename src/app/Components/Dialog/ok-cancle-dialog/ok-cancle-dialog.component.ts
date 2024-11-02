@@ -5,7 +5,7 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DialogModel } from '../../../Features/shared/Models/dialog.model';
 import { SharedModule } from '../../../Features/shared/shared.module';
 import { DialogView } from '../../../Features/shared/Models/dialog-view.model';
@@ -37,10 +37,11 @@ export class OkCancleDialogComponent implements OnInit {
   }
 
   onConfirm(): void {
-    this.dialogRef.close(true);
+    let output = this.dialogView?.onOkClicked();
+    this.dialogRef.close(output);
   }
 
   onCancel(): void {
-    this.dialogRef.close(false);
+    this.dialogRef.close();
   }
 }

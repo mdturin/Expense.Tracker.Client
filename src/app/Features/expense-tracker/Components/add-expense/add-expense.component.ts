@@ -19,7 +19,7 @@ export class AddExpenseComponent implements DialogView {
   };
 
   onOkClicked() {
-    throw new Error('Method not implemented.');
+    return this.newExpense;
   }
   
 }

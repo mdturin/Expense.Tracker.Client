@@ -2,6 +2,8 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CalendarDate } from '../../../shared/Models/calendar-date.model';
 import { Expense, Unit } from '../../../shared/Models/expense.model';
 import { ExpenseService } from '../../Services/expense.service';
+import { DialogService } from '../../../../Services/dialog.service';
+import { AddExpenseComponent } from '../add-expense/add-expense.component';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +17,9 @@ export class CartComponent implements OnChanges {
   newExpense: Partial<Expense> = {};
   expenses: Expense[] = [];
 
-  constructor(private expenseService: ExpenseService){}
+  constructor(
+    private dialogService: DialogService,
+    private expenseService: ExpenseService){}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['selectedDate']) {
@@ -30,6 +34,10 @@ export class CartComponent implements OnChanges {
   openAddExpense(): void {
     this.showModal = true;
     this.newExpense = {};
+    this.dialogService.showOkCancelDialog({
+      component: AddExpenseComponent,
+      title: "Expenses"
+    });
   }
 
   closeAddExpense(): void {

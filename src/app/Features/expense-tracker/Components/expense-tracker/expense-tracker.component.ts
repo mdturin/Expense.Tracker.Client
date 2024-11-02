@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { SideBarItem } from '../../../shared/Models/side-bar-item.model';
-import { SideBarStoreService } from '../../../../Services/Store/side-bar-store.service';
-import { SideBar } from '../../../shared/Models/side-bar.model';
+import { Component } from '@angular/core';
+import { DialogView } from '../../../shared/Models/dialog-view.model';
+import { DialogModel } from '../../../shared/Models/dialog.model';
 
 @Component({
   selector: 'app-expense-tracker',
   templateUrl: './expense-tracker.component.html',
-  styleUrl: './expense-tracker.component.css'
+  styleUrl: './expense-tracker.component.css',
 })
-export class ExpenseTrackerComponent {}
+export class ExpenseTrackerComponent {
+}

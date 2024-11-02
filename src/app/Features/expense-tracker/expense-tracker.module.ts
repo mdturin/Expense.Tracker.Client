@@ -7,9 +7,15 @@ import { CalendarComponent } from './Components/calendar/calendar.component';
 import { SideBar } from '../shared/Models/side-bar.model';
 import { SideBarStoreService } from '../../Services/Store/side-bar-store.service';
 import { CartComponent } from './Components/cart/cart.component';
+import { AddExpenseComponent } from './Components/add-expense/add-expense.component';
 
 @NgModule({
-  declarations: [ExpenseTrackerComponent, CalendarComponent, CartComponent],
+  declarations: [
+    ExpenseTrackerComponent,
+    CalendarComponent,
+    CartComponent,
+    AddExpenseComponent,
+  ],
   imports: [CommonModule, ExpenseTrackerRoutingModule, SharedModule],
 })
 export class ExpenseTrackerModule {

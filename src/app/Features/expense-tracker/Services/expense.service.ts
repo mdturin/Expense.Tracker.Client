@@ -7,12 +7,6 @@ import { Expense, Unit } from '../../shared/Models/expense.model';
 })
 export class ExpenseService {
   private expenses: { [key: string]: Expense[] } = {
-    '2024-11-02': [
-      { id: 1, description: 'Potato', amount: 310, unit: Unit.Kg, quantity: 5 },
-      { id: 2, description: 'Onion', amount: 550, unit: Unit.Kg, quantity: 5 },
-      { id: 3, description: 'Milk', amount: 180, unit: Unit.Liter, quantity: 2 },
-    ],
-    // Add more dates and expenses as needed
   };
 
   private nextId: number = 5; // Incremental ID for new expenses

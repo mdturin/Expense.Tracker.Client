@@ -10,13 +10,7 @@ import { Expense, Unit } from '../../../shared/Models/expense.model';
 })
 export class AddExpenseComponent implements DialogView {
   data!: DialogModel;
-  newExpense: Expense = {
-    id: 0,
-    amount: 0,
-    description: '',
-    quantity: 0,
-    unit: Unit.Kg
-  };
+  newExpense: Expense = {};
 
   onOkClicked() {
     return this.newExpense;

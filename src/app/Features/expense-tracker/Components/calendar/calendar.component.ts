@@ -11,6 +11,7 @@ import {
   isToday,
 } from 'date-fns';
 import { CalendarDate } from '../../../shared/Models/calendar-date.model';
+import { ExpenseService } from '../../Services/expense.service';
 
 @Component({
   selector: 'app-calendar',
@@ -22,6 +23,8 @@ export class CalendarComponent {
   dayNames: string[] = [];
   calendarDates: CalendarDate[] = [];
   selectedDate?: CalendarDate = undefined;
+
+  constructor(private expenseService: ExpenseService){}
 
   ngOnInit(): void {
     this.generateDayNames();
@@ -41,7 +44,8 @@ export class CalendarComponent {
     const dates = eachDayOfInterval({ start, end }).map(date => ({
       date,
       otherMonth: !isSameMonth(date, month),
-      isToday: isToday(date)
+      isToday: isToday(date),
+      amount: this.expenseService.getExpenseAmount(date)
     }));
 
     this.calendarDates = dates;

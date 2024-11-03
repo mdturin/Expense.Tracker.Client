@@ -35,6 +35,13 @@ export class ExpenseService {
       });
   }
 
+  getExpenseAmount(date: Date) {
+    return this.getExpensesByDate(date).reduce(
+      (total, e) => total + e.amount,
+      0
+    );
+  }
+
   getExpensesByDate(date: Date): Expense[] {
     return this.expenses[getFormattedDate(date)] ?? [];
   }

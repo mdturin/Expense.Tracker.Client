@@ -1,6 +1,9 @@
 <div class="row h-100 w-100 m-0 g-0">
   <!-- Calendar Column -->
-  <div class="calendar col-12 col-md-9" [ngClass]="{'col-md-12': !selectedDate}">
+  <div
+    class="calendar col-12 col-md-9"
+    [ngClass]="{ 'col-md-12': !selectedDate }"
+  >
     <div class="calendar-header">
       <button (click)="prevMonth()">&lt;</button>
       <div class="month-year">{{ currentMonth | date : "MMMM yyyy" }}</div>
@@ -22,8 +25,8 @@
           role="button"
         >
           <span class="date-number">{{ date.date | date : "d" }}</span>
-          <div class="amount">
-            <small>0</small>
+          <div class="amount" *ngIf="date.amount > 0">
+            <small>{{ date.amount }}</small>
             <i class="fas fa-bangladeshi-taka-sign"></i>
           </div>
         </div>

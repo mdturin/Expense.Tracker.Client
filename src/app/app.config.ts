@@ -8,6 +8,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +19,7 @@ export const appConfig: ApplicationConfig = {
     ),
     provideAuth(() => getAuth()),
     OverlayModule,
-    PortalModule
+    PortalModule,
+    provideHttpClient()
   ],
 };

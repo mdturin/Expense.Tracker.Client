@@ -1,5 +1,5 @@
 <!-- cart.component.html -->
-<div class="cart">
+<div class="cart" *ngIf="modelReady">
   <h3>Expenses for {{ selectedDate | date : "fullDate" }}</h3>
 
   <button class="btn btn-primary mb-3" (click)="openAddExpense()">

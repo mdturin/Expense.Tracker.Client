@@ -8,6 +8,7 @@ import { SideBar } from '../shared/Models/side-bar.model';
 import { SideBarStoreService } from '../../Services/Store/side-bar-store.service';
 import { CartComponent } from './Components/cart/cart.component';
 import { AddExpenseComponent } from './Components/add-expense/add-expense.component';
+import { ExpenseService } from './Services/expense.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,10 @@ export class ExpenseTrackerModule {
     ],
   };
 
-  constructor(private sideBarStore: SideBarStoreService) {
+  constructor(
+    private expenseService: ExpenseService,
+    private sideBarStore: SideBarStoreService) {
     this.sideBarStore.updateSideBar(this.state);
+    this.expenseService.loadAllExpenses();
   }
 }

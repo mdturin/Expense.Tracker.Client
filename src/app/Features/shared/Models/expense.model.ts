@@ -9,9 +9,9 @@ export enum Unit {
 
 export interface Expense {
   id?: number;
-  description?: string;
-  amount?: number;
-  unit?: Unit;
-  quantity?: number;
-  date?: Date;
+  description: string;
+  amount: number;
+  unit: Unit;
+  quantity: number;
+  date: Date;
 }

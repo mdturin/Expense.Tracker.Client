@@ -28,6 +28,16 @@ export class ExpenseTrackerModule {
         route: '/expense-tracker/calendar',
         title: 'Calendar',
       },
+      {
+        icon: 'fas fa-square-plus',
+        route: '/expense-tracker/add',
+        title: 'Add Expense'
+      },
+      {
+        icon: 'fas fa-gear',
+        route: '/expense-tracker/settings',
+        title: 'Settings'
+      }
     ],
   };
 

@@ -14,11 +14,13 @@
         routerLinkActive="router-link-active"
         class="nav-link text-white text-decoration-none"
         aria-current="page"
+        style="font-size: 1.2rem;"
       >
-        <i [ngClass]="item.icon"></i>
+        <i class="mx-2" [ngClass]="item.icon"></i>
         {{ item.title }}
       </a>
     </li>
+    <hr class="m-2">
     }
   </ul>
 </div>

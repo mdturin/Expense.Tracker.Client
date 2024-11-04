@@ -1,9 +1,11 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnDestroy,
   OnInit,
+  Output,
   SimpleChanges,
 } from '@angular/core';
 import { Expense } from '../../../shared/Models/expense.model';
@@ -20,6 +22,7 @@ import { Subject } from 'rxjs';
 })
 export class CartComponent implements OnInit, OnChanges, OnDestroy {
   @Input() selectedDate!: Date;
+  @Output() onClose: EventEmitter<void> = new EventEmitter();
 
   modelReady = false;
   expenses: Expense[] = [];
@@ -40,6 +43,10 @@ export class CartComponent implements OnInit, OnChanges, OnDestroy {
       this.modelReady = false;
       this.loadExpenses();
     }
+  }
+  
+  onCartClose(){
+    this.onClose.emit();
   }
 
   loadExpenses(): void {

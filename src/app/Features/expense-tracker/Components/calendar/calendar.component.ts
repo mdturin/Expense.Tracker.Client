@@ -31,6 +31,10 @@ export class CalendarComponent {
     this.generateCalendar(this.currentMonth);
   }
 
+  onCartClose(){
+    this.selectedDate = undefined;
+  }
+
   generateDayNames(): void {
     const weekStart = startOfWeek(this.currentMonth, { weekStartsOn: 0 }); // Sunday
     this.dayNames = eachDayOfInterval({ start: weekStart, end: endOfWeek(weekStart) })

@@ -1,7 +1,7 @@
 <div class="row h-100 w-100 m-0 g-0">
   <!-- Calendar Column -->
   <div
-    class="calendar col-12 col-md-9"
+    class="calendar col-12 col-md-8"
     [ngClass]="{ 'col-md-12': !selectedDate }"
   >
     <div class="calendar-header">
@@ -36,8 +36,8 @@
 
   <!-- Cart Column Wrapped in a Bootstrap Column -->
   @if (selectedDate) {
-  <div class="col-12 col-md-3">
-    <app-cart [selectedDate]="selectedDate.date"></app-cart>
+  <div class="col-12 col-md-4">
+    <app-cart [selectedDate]="selectedDate.date" (onClose)="onCartClose()"></app-cart>
   </div>
   }
 </div>

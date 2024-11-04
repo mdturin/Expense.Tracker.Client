@@ -1,4 +1,4 @@
-import { NgModule, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExpenseTrackerRoutingModule } from './expense-tracker-routing.module';
 import { ExpenseTrackerComponent } from './Components/expense-tracker/expense-tracker.component';
@@ -9,6 +9,7 @@ import { SideBarStoreService } from '../../Services/Store/side-bar-store.service
 import { CartComponent } from './Components/cart/cart.component';
 import { AddExpenseComponent } from './Components/add-expense/add-expense.component';
 import { ExpenseService } from './Services/expense.service';
+import { DynamicComponentHelperService } from '../../Helpers/dynamic-component-helper.service';
 
 @NgModule({
   declarations: [
@@ -24,27 +25,34 @@ export class ExpenseTrackerModule {
     header: 'Expenses',
     items: [
       {
+        icon: 'fas fa-square-plus',
+        route: '/expense-tracker/add',
+        title: 'Add Items',
+      },
+      {
         icon: 'fas fa-calendar-days',
         route: '/expense-tracker/calendar',
         title: 'Calendar',
       },
       {
-        icon: 'fas fa-square-plus',
-        route: '/expense-tracker/add',
-        title: 'Add Expense'
-      },
-      {
         icon: 'fas fa-gear',
         route: '/expense-tracker/settings',
-        title: 'Settings'
-      }
+        title: 'Settings',
+      },
     ],
   };
 
   constructor(
-    private expenseService: ExpenseService,
-    private sideBarStore: SideBarStoreService) {
-    this.sideBarStore.updateSideBar(this.state);
-    this.expenseService.loadAllExpenses();
+    // dchs: DynamicComponentHelperService,
+    expenseService: ExpenseService,
+    sideBarStore: SideBarStoreService
+  ) {
+    sideBarStore.updateSideBar(this.state);
+    expenseService.loadAllExpenses();
+    // this.registerComponents(dchs);
   }
+
+  // private registerComponents(service: DynamicComponentHelperService) {
+  //   service.register('CalendarComponent', CalendarComponent);
+  // }
 }

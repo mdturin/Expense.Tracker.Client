@@ -1,6 +1,14 @@
 <!-- cart.component.html -->
 <div class="cart" *ngIf="modelReady">
-  <h3>Expenses for {{ selectedDate | date : "fullDate" }}</h3>
+  <div style="position: relative">
+    <h3>Expenses for {{ selectedDate | date : "EEE, MMM d, y" }}</h3>
+    <button
+      (click)="onCartClose()"
+      style="position: absolute; top: 0; right: 0"
+    >
+      X
+    </button>
+  </div>
 
   <button class="btn btn-primary mb-3" (click)="openAddExpense()">
     Add Expense

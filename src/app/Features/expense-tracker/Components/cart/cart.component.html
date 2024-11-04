@@ -2,11 +2,8 @@
 <div class="cart" *ngIf="modelReady">
   <div style="position: relative">
     <h3>Expenses for {{ selectedDate | date : "EEE, MMM d, y" }}</h3>
-    <button
-      (click)="onCartClose()"
-      style="position: absolute; top: 0; right: 0"
-    >
-      X
+    <button (click)="onCartClose()" class="close-button">
+      <i class="fas fa-circle-xmark large-icon"></i>
     </button>
   </div>
 

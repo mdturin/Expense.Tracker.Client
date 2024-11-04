@@ -1,71 +1,91 @@
 /* cart.component.css */
 
 .cart {
-    padding: 15px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    height: 100%;
-    overflow-y: auto; /* Adds scroll if content overflows */
-  }
-  
-  .cart h3 {
-    margin-bottom: 15px;
-    color: #007bff;
-  }
-  
-  .expense-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .expense-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Vertically centers content */
-    padding: 8px 0;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
-  .expense-item:last-child {
-    border-bottom: none;
-  }
-  
-  .description {
-    font-weight: 500;
-    flex: 2; /* Allows description to take more space */
-  }
-  
-  .details {
-    flex: 1; /* Allows details to take balanced space */
-    text-align: center;
-  }
-  
-  .amount {
-    color: #28a745;
-    flex: 1;
-    text-align: right;
-  }
-  
-  .modal {
-    background: rgba(0, 0, 0, 0.5);
-  }
-  
-  .modal-dialog {
-    max-width: 500px;
-  }
-  
-  .modal-content {
-    border-radius: 5px;
-  }
-  
-  .btn-close {
-    background: none;
-    border: none;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border: none;
-  }
-  
+  padding: 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: 100%;
+  overflow-y: auto; /* Adds scroll if content overflows */
+}
+
+.cart h3 {
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+.close-button{
+  position: absolute; 
+  top: 0; 
+  right: 0;
+  border: 0px;
+  border-radius: 50%; /* Makes the button circular */
+  width: 24px; /* Set a fixed width */
+  height: 24px; /* Set a fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button i{
+  color: #f00000;
+}
+
+.large-icon {
+  font-size: 24px; /* Adjust the size as needed */
+}
+
+.expense-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Vertically centers content */
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.expense-item:last-child {
+  border-bottom: none;
+}
+
+.description {
+  font-weight: 500;
+  flex: 2; /* Allows description to take more space */
+}
+
+.details {
+  flex: 1; /* Allows details to take balanced space */
+  text-align: center;
+}
+
+.amount {
+  color: #28a745;
+  flex: 1;
+  text-align: right;
+}
+
+.modal {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+  max-width: 500px;
+}
+
+.modal-content {
+  border-radius: 5px;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}

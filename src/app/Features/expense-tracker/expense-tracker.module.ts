@@ -10,6 +10,7 @@ import { CartComponent } from './Components/cart/cart.component';
 import { AddExpenseComponent } from './Components/add-expense/add-expense.component';
 import { ExpenseService } from './Services/expense.service';
 import { DynamicComponentHelperService } from '../../Helpers/dynamic-component-helper.service';
+import { AddExpenseItemsComponent } from './Components/add-expense-items/add-expense-items.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DynamicComponentHelperService } from '../../Helpers/dynamic-component-h
     CalendarComponent,
     CartComponent,
     AddExpenseComponent,
+    AddExpenseItemsComponent
   ],
   imports: [CommonModule, ExpenseTrackerRoutingModule, SharedModule],
 })
@@ -26,7 +28,7 @@ export class ExpenseTrackerModule {
     items: [
       {
         icon: 'fas fa-square-plus',
-        route: '/expense-tracker/add',
+        route: '/expense-tracker/add-items',
         title: 'Add Items',
       },
       {

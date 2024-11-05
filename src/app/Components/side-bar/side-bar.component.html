@@ -1,11 +1,4 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark h-100">
-  <p
-    class="d-flex align-items-center justify-content-center mb-3 mb-md-0 text-white text-decoration-none"
-  >
-    <span class="fs-4">{{ header }}</span>
-  </p>
-
-  <hr />
   <ul class="nav nav-pills flex-column mb-auto">
     @for (item of items; track $index) {
     <li class="nav-item">
@@ -14,13 +7,13 @@
         routerLinkActive="router-link-active"
         class="nav-link text-white text-decoration-none"
         aria-current="page"
-        style="font-size: 1.2rem;"
+        style="font-size: 1.2rem"
       >
         <i class="mx-2" [ngClass]="item.icon"></i>
-        {{ item.title }}
+        <span class="side-bar-title">{{ item.title }}</span>
       </a>
     </li>
-    <hr class="m-2">
+    <hr class="m-2" />
     }
   </ul>
 </div>

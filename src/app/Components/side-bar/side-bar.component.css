@@ -1,3 +1,9 @@
-.nav-item:hover{
-    background-color: #007bff;
+.nav-item:hover {
+  background-color: #007bff;
+}
+
+@media (min-width: 635px) and (max-width: 1024px) {
+  .side-bar-title {
+    display: none;
+  }
 }

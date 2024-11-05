@@ -1,3 +1,12 @@
-.hide{
-    display: none;
+.hide {
+  display: none;
+}
+
+app-nav-bar {
+  height: 60px; /* Set your navbar height here */
+}
+
+.content {
+  height: calc(100% - 60px); /* Adjust based on the navbar height */
+  overflow: auto; /* Optional: add overflow if content exceeds the height */
 }

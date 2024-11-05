@@ -2,8 +2,18 @@
   background-color: #007bff;
 }
 
-@media (min-width: 635px) and (max-width: 1024px) {
+@media (min-width: 770px) and (max-width: 1024px) {
   .side-bar-title {
     display: none;
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-link i {
+    font-size: 2rem; /* Increase icon size */
+    margin: 0; /* Center icon within nav link */
   }
 }

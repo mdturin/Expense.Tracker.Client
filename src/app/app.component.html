@@ -1,12 +1,12 @@
-<app-nav-bar />
+<app-nav-bar></app-nav-bar>
 <div class="row content w-100 m-0 g-0">
-    <!-- Sidebar -->
-    <div class="col-12 col-md-2" [ngClass]="{ 'hide': !sideBarIsOpend }">
-      <app-side-bar />
-    </div>
+  <!-- Sidebar -->
+  <div class="col-12 col-md-2 sidebar" [ngClass]="{ 'hide': !sideBarIsOpend }">
+    <app-side-bar></app-side-bar>
+  </div>
 
-    <!-- Main Content -->
-    <div class="col-12 col-md-10" [ngClass]="{ 'col-md-12': !sideBarIsOpend }">
-      <router-outlet />
-    </div>
+  <!-- Main Content -->
+  <div class="col-12 col-md-10 main-content" [ngClass]="{ 'col-md-12': !sideBarIsOpend }">
+    <router-outlet></router-outlet>
+  </div>
 </div>

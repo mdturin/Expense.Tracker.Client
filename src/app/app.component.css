@@ -1,3 +1,10 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .hide {
   display: none;
 }
@@ -9,4 +16,10 @@ app-nav-bar {
 .content {
   height: calc(100% - 60px); /* Adjust based on the navbar height */
   overflow: auto; /* Optional: add overflow if content exceeds the height */
+}
+
+/* Main content adjustment based on sidebar visibility */
+.main-content {
+  flex-grow: 1;
+  transition: margin-left 0.3s ease;
 }

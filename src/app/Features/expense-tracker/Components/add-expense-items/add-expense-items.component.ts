@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './add-expense-items.component.css'
 })
 export class AddExpenseItemsComponent {
-
+  items = ["abc", "def", "ad"]
 }

@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.row {
+    display: flex; /* Ensures items are in a row */
+    align-items: center; /* Vertically centers input and button */
+    gap: 10px; /* Adds space between input and button */
+    margin-bottom: 15px;
+    justify-content: center; /* Centers the row horizontally */
+}
+
+#search-input {
+  width: 250px;
+  padding: 8px;
+  font-size: 0.9em;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: left;
+}
+
+#search-button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#search-button:hover {
+  background-color: #0056b3;
+}
+
+/* Container styling */
+.item-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.item:hover {
+  background-color: #f5f5f5;
+}
+
+/* Title styling */
+.item-title {
+  margin: 0;
+  font-size: 1.1em;
+  color: #333;
+}
+
+/* Button styling */
+.item-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.edit-btn,
+.delete-btn {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.edit-btn i,
+.delete-btn i {
+  font-size: 1em;
+}

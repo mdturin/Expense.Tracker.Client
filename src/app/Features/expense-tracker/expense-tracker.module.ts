@@ -11,6 +11,7 @@ import { AddExpenseComponent } from './Components/add-expense/add-expense.compon
 import { ExpenseService } from './Services/expense.service';
 import { DynamicComponentHelperService } from '../../Helpers/dynamic-component-helper.service';
 import { AddExpenseItemsComponent } from './Components/add-expense-items/add-expense-items.component';
+import { SearchableListingItemsComponent } from '../../Components/searchable-listing-items/searchable-listing-items.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,14 @@ import { AddExpenseItemsComponent } from './Components/add-expense-items/add-exp
     CalendarComponent,
     CartComponent,
     AddExpenseComponent,
-    AddExpenseItemsComponent
+    AddExpenseItemsComponent,
   ],
-  imports: [CommonModule, ExpenseTrackerRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    ExpenseTrackerRoutingModule,
+    SharedModule,
+    SearchableListingItemsComponent,
+  ],
 })
 export class ExpenseTrackerModule {
   state: SideBar = {

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <input
+      type="text"
+      class="col-xl"
+      id="search-input"
+      [(ngModel)]="searchTerm"
+      placeholder="Search items..."
+      (keydown)="onSearchKeyDown($event)"
+    />
+    <button class="col-sm-2 btn btn-success" (click)="onFilterItems()">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+    <button class="col-sm-2 btn btn-primary" (click)="onAddItem()">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
+
+  <ul class="item-list" *ngIf="filteredItems.length > 0; else addNew">
+    <li *ngFor="let item of filteredItems; let i = index" class="item">
+      <h3 class="item-title">{{ item }}</h3>
+      <div class="item-buttons">
+        <button class="edit-btn" (click)="onEditItem(i)">
+          <i class="fas fa-pen-to-square"></i>
+        </button>
+        <button class="delete-btn" (click)="onDeleteItem(i)">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <ng-template #addNew>
+    <p>No items found. Add new items to see them here.</p>
+  </ng-template>
+</div>

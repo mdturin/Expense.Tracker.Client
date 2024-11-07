@@ -1,1 +1,8 @@
-<app-searchable-listing-items [items]="items"/>
+<div class="container" *ngIf="modelReady">
+  <div class="row">
+    <app-searchable-listing-items
+      class="col-md-4"
+      [items]="items"
+    />
+  </div>
+</div>

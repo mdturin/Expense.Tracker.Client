@@ -17,6 +17,11 @@ export class ApiService {
     return this.http.get<Expense[]>(url);
   }
 
+  getAllExpenseItems(): Observable<string[]>{
+    const url = this.apiUrl + 'expense-items'
+    return this.http.get<string[]>(url);
+  }
+
   getExpenseByDate(date: Date): Observable<Expense[]> {
     const formattedDate = getFormattedDate(date);
     const url = this.apiUrl + 'expenses?date=' + formattedDate;

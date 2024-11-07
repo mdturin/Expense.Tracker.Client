@@ -1,8 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../Features/shared/shared.module';
 import { SnackBarService } from '../../Services/snack-bar.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-searchable-listing-items',
@@ -20,14 +28,17 @@ export class SearchableListingItemsComponent implements OnInit {
   filteredItems: string[] = [];
   searchTerm: string = '';
 
-  constructor(private snackBar: SnackBarService) {}
+  constructor(
+    private snackBar: SnackBarService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.filteredItems = this.items;
   }
 
-  onSearchKeyDown(event: KeyboardEvent){
-    if(event.key === "Enter"){
+  onSearchKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
       this.onFilterItems();
     }
   }
@@ -55,23 +66,29 @@ export class SearchableListingItemsComponent implements OnInit {
     this.searchTerm = '';
   }
 
-  onEditItem(index: number){
+  onEditItem(index: number) {
     let item = this.filteredItems[index];
-    let itemIndex = this.items.findIndex(i => i === item);
-    if(itemIndex !== -1){
+    let itemIndex = this.items.findIndex((i) => i === item);
+    if (itemIndex !== -1) {
       this.items[itemIndex] = this.searchTerm;
       this.filteredItems = [...this.items];
       this.editItem.emit(this.searchTerm);
     }
   }
 
-  onDeleteItem(index: number){
+  onDeleteItem(index: number) {
     let item = this.filteredItems[index];
-    let itemIndex = this.items.findIndex(i => i === item);
-    if(itemIndex !== -1){
+    let itemIndex = this.items.findIndex((i) => i === item);
+    if (itemIndex !== -1) {
       this.items.splice(itemIndex, 1);
+      this.cdr.detectChanges();
       this.filteredItems = [...this.items];
       this.deleteItem.emit(item);
     }
+  }
+
+  // Method to handle the drop event and reorder items
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.filteredItems, event.previousIndex, event.currentIndex);
   }
 }

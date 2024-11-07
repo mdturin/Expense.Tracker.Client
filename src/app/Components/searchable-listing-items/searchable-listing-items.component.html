@@ -16,8 +16,13 @@
     </button>
   </div>
 
-  <ul class="item-list" *ngIf="filteredItems.length > 0; else addNew">
-    <li *ngFor="let item of filteredItems; let i = index" class="item">
+  <ul
+    class="item-list"
+    *ngIf="filteredItems.length > 0; else addNew"
+    cdkDropList
+    (cdkDropListDropped)="drop($event)"
+  >
+    <li *ngFor="let item of filteredItems; let i = index" class="item" cdkDrag>
       <h3 class="item-title">{{ item }}</h3>
       <div class="item-buttons">
         <button class="edit-btn" (click)="onEditItem(i)">

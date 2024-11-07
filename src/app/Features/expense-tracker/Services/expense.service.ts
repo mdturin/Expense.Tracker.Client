@@ -4,6 +4,8 @@ import { Expense } from '../../shared/Models/expense.model';
 import { ApiService } from '../../../Services/api.service';
 import { getFormattedDate } from '../../../Utilities/date.utility';
 import { take } from 'rxjs';
+import { ParticleStoreService } from '../../../Services/Store/particle-store.service';
+import { ExpenseTrackerConstant } from '../../../Constants/expense-tracker.constant';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +14,10 @@ export class ExpenseService {
   private maxId = 1;
   private expenses: { [key: string]: Expense[] } = {};
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private particleStore: ParticleStoreService
+  ) {}
 
   private addExpenseItem(dateKey: string, expense: Expense) {
     if (!this.expenses[dateKey]) this.expenses[dateKey] = [];
@@ -31,6 +36,21 @@ export class ExpenseService {
             this.addExpenseItem(dateKey, expense);
             this.maxId = Math.max(this.maxId, expense.id!);
           });
+        },
+      });
+  }
+
+  loadAllExpenseItems() {
+    this.apiService
+      .getAllExpenseItems()
+      .pipe(take(1))
+      .subscribe({
+        next: (items: string[]) => {
+          console.log(items);
+          this.particleStore.setStateValue(
+            ExpenseTrackerConstant.ExpenseItem,
+            items
+          );
         },
       });
   }

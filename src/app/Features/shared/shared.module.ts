@@ -11,6 +11,7 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatCommonModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [],
@@ -32,6 +33,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDialogTitle,
     MatCommonModule,
     MatSnackBarModule,
+    DragDropModule
   ],
   providers: [],
 })

@@ -20,7 +20,11 @@
     {{ data.cancleCaption }}
   </button>
   <span class="spacer"></span>
-  <button class="btn btn-primary" (click)="onConfirm()">
+  <button
+    class="btn btn-primary"
+    (click)="onConfirm()"
+    [disabled]="data.disabled"
+  >
     {{ data.okCaption }}
   </button>
 </mat-dialog-actions>

@@ -1,5 +1,6 @@
 import {
   Component,
+  ComponentRef,
   Inject,
   OnInit,
   ViewChild,
@@ -29,10 +30,9 @@ export class OkCancleDialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const component = this.viewContainerRef.createComponent(
-      this.data.component
-    );
-    this.dialogView = component.instance as DialogView;
+    const componentRef: ComponentRef<DialogView> =
+      this.viewContainerRef.createComponent(this.data.component);
+    this.dialogView = componentRef.instance as DialogView;
     this.dialogView.data = this.data;
   }
 

@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../Features/shared/shared.module';
 import { SnackBarService } from '../../Services/snack-bar.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { DialogService } from '../../Services/dialog.service';
+import { DialogModel } from '../../Features/shared/Models/dialog.model';
 
 @Component({
   selector: 'app-searchable-listing-items',
@@ -30,7 +32,8 @@ export class SearchableListingItemsComponent implements OnInit {
 
   constructor(
     private snackBar: SnackBarService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private dialog: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -59,11 +62,29 @@ export class SearchableListingItemsComponent implements OnInit {
       return;
     }
 
-    this.items.push(this.searchTerm);
-    this.filteredItems = [...this.items];
-    this.snackBar.showSnackBarMessage('Item added successfully!');
-    this.addItem.emit(this.searchTerm);
-    this.searchTerm = '';
+    this.dialog
+      .showStringInputDialog(
+        new DialogModel({
+          title: 'Add Item',
+          cancleCaption: 'Cancle',
+          okCaption: 'Add',
+          input: {
+            title: 'Item Name',
+            invalidateNames: this.items,
+            errorMessage: 'Item already exists!',
+          },
+          disabled: true
+        }),
+        '400px'
+      )
+      .subscribe({
+        next: console.log,
+      });
+    // this.items.push(this.searchTerm);
+    // this.filteredItems = [...this.items];
+    // this.snackBar.showSnackBarMessage('Item added successfully!');
+    // this.addItem.emit(this.searchTerm);
+    // this.searchTerm = '';
   }
 
   onEditItem(index: number) {
@@ -89,6 +110,10 @@ export class SearchableListingItemsComponent implements OnInit {
 
   // Method to handle the drop event and reorder items
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.filteredItems, event.previousIndex, event.currentIndex);
+    moveItemInArray(
+      this.filteredItems,
+      event.previousIndex,
+      event.currentIndex
+    );
   }
 }

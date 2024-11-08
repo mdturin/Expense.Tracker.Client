@@ -20,6 +20,6 @@ export const appConfig: ApplicationConfig = {
     provideAuth(() => getAuth()),
     OverlayModule,
     PortalModule,
-    provideHttpClient()
+    provideHttpClient(), provideAnimationsAsync()
   ],
 };

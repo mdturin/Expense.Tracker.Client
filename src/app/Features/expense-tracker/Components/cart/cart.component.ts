@@ -44,8 +44,8 @@ export class CartComponent implements OnInit, OnChanges, OnDestroy {
       this.loadExpenses();
     }
   }
-  
-  onCartClose(){
+
+  onCartClose() {
     this.onClose.emit();
   }
 

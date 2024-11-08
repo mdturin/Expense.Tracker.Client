@@ -1,52 +1,73 @@
-<div class="modal-body">
-  <form #expenseForm="ngForm">
-    <div class="mb-3">
-      <label for="description" class="form-label">Description</label>
+<div *ngIf="modelReady" class="modal-body">
+  <form #expenseForm="ngForm" (submit)="onOkClicked()">
+    <!-- Description Field -->
+    <mat-form-field class="full-width">
+      <mat-label>Description</mat-label>
       <input
         type="text"
-        id="description"
-        class="form-control"
+        matInput
         [(ngModel)]="newExpense.description"
         name="description"
+        [matAutocomplete]="auto"
+        (input)="onDescriptionChanges($event)"
         required
       />
-    </div>
-    <div class="mb-3">
-      <label for="amount" class="form-label">Amount</label>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredItems" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="expenseForm.controls['description']?.invalid && expenseForm.controls['description']?.touched">
+        Description is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Amount Field -->
+    <mat-form-field class="full-width">
+      <mat-label>Amount</mat-label>
       <input
+        matInput
         type="number"
-        id="amount"
-        class="form-control"
         [(ngModel)]="newExpense.amount"
         name="amount"
         required
       />
-    </div>
-    <div class="mb-3">
-      <label for="quantity" class="form-label">Quantity (Poriman)</label>
+      <mat-error *ngIf="expenseForm.controls['amount']?.invalid && expenseForm.controls['amount']?.touched">
+        Amount is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Quantity Field -->
+    <mat-form-field class="full-width">
+      <mat-label>Quantity</mat-label>
       <input
+        matInput
         type="number"
-        id="quantity"
-        class="form-control"
         [(ngModel)]="newExpense.quantity"
         name="quantity"
         required
       />
-    </div>
-    <div>
-      <label for="unit" class="form-label">Unit</label>
-      <select
-        id="unit"
-        class="form-control"
+      <mat-error *ngIf="expenseForm.controls['quantity']?.invalid && expenseForm.controls['quantity']?.touched">
+        Quantity is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Unit Field -->
+    <mat-form-field class="full-width">
+      <mat-label>Unit</mat-label>
+      <mat-select
         [(ngModel)]="newExpense.unit"
         name="unit"
         required
       >
-        <option value="" disabled selected>Select unit</option>
-        <option value="piece">Piece</option>
-        <option value="kg">Kg</option>
-        <option value="litre">Litre</option>
-      </select>
-    </div>
+        <mat-option value="" disabled>Select unit</mat-option>
+        <mat-option value="piece">Piece</mat-option>
+        <mat-option value="kg">Kg</mat-option>
+        <mat-option value="litre">Litre</mat-option>
+      </mat-select>
+      <mat-error *ngIf="expenseForm.controls['unit']?.invalid && expenseForm.controls['unit']?.touched">
+        Unit is required
+      </mat-error>
+    </mat-form-field>
   </form>
 </div>

@@ -12,6 +12,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCommonModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete'; // <-- Add this
 
 @NgModule({
   declarations: [],
@@ -23,6 +27,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatButtonModule,
     MatIconModule,
     MatCommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatAutocompleteModule 
   ],
   exports: [
     FormsModule,
@@ -33,7 +41,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatDialogTitle,
     MatCommonModule,
     MatSnackBarModule,
-    DragDropModule
+    DragDropModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatAutocompleteModule 
   ],
   providers: [],
 })

@@ -24,7 +24,7 @@ import { DialogModel } from '../../Features/shared/Models/dialog.model';
 export class SearchableListingItemsComponent implements OnInit {
   @Input() items: string[] = [];
   @Output() addItem = new EventEmitter<string>();
-  @Output() editItem = new EventEmitter<string>();
+  @Output() editItem = new EventEmitter<any>();
   @Output() deleteItem = new EventEmitter<string>();
 
   filteredItems: string[] = [];
@@ -53,15 +53,6 @@ export class SearchableListingItemsComponent implements OnInit {
   }
 
   onAddItem() {
-    if (
-      this.filteredItems.some(
-        (item) => item.toLowerCase() === this.searchTerm.toLowerCase()
-      )
-    ) {
-      this.snackBar.showSnackBarMessage('Item already exists!');
-      return;
-    }
-
     this.dialog
       .showStringInputDialog(
         new DialogModel({
@@ -73,31 +64,44 @@ export class SearchableListingItemsComponent implements OnInit {
             invalidateNames: this.items,
             errorMessage: 'Item already exists!',
           },
-          disabled: true
+          disabled: true,
         }),
         '400px'
       )
       .subscribe({
         next: (itemName) => {
-          if(!itemName) return;
+          if (!itemName) return;
           this.addItem.emit(itemName);
-        }
+        },
       });
-    // this.items.push(this.searchTerm);
-    // this.filteredItems = [...this.items];
-    // this.snackBar.showSnackBarMessage('Item added successfully!');
-    // this.addItem.emit(this.searchTerm);
-    // this.searchTerm = '';
   }
 
-  onEditItem(index: number) {
-    let item = this.filteredItems[index];
-    let itemIndex = this.items.findIndex((i) => i === item);
-    if (itemIndex !== -1) {
-      this.items[itemIndex] = this.searchTerm;
-      this.filteredItems = [...this.items];
-      this.editItem.emit(this.searchTerm);
-    }
+  onEditItem(item: string) {
+    this.dialog
+      .showStringInputDialog(
+        new DialogModel({
+          title: 'Edit Item',
+          okCaption: 'Edit',
+          input: {
+            value: item,
+            title: 'Item Name',
+            invalidateNames: this.items.filter((i) => i !== item),
+            errorMessage: 'Item already exists!',
+          },
+          disabled: true,
+        }),
+        '400px'
+      )
+      .subscribe({
+        next: (itemName) => {
+          if (!itemName) return;
+          this.editItem.emit({
+            prevItem: item, 
+            currItem: itemName
+          });
+        },
+        error: console.error,
+      });
   }
 
   onDeleteItem(index: number) {

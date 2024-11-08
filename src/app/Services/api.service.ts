@@ -48,6 +48,16 @@ export class ApiService {
     );
   }
 
+  editExpenseItem(changes: any){
+    const url = `${this.apiUrl}expense-items`;
+    return this.http.patch(url, changes).pipe(
+      catchError((error) => {
+        console.error('Error editing expense item:', error);
+        return throwError(() => new Error('Failed to edit expense item'));
+      })
+    );
+  }
+
   deleteExpenseItem(itemId: string) {
     const url = `${this.apiUrl}expense-items/${itemId}`;
     return this.http.delete(url).pipe(

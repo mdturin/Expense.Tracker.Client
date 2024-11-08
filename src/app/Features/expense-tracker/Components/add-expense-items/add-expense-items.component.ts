@@ -46,7 +46,23 @@ export class AddExpenseItemsComponent implements OnInit {
     });
   }
 
-  onEditItem(item: string) {}
+  onEditItem(changes: any) {
+    this.api.editExpenseItem(changes).subscribe({
+      next: () => {
+        const prev = changes.prevItem;
+        const index = this.items.findIndex((i) => i === prev);
+        if (index === -1) {
+          return;
+        }
+        this.items[index] = changes.currItem;
+        this.particleStore.setStateValue(
+          ExpenseTrackerConstant.ExpenseItem,
+          this.items
+        );
+      },
+      error: console.error,
+    });
+  }
 
   onDeleteItem(item: string) {
     this.api.deleteExpenseItem(item).subscribe({

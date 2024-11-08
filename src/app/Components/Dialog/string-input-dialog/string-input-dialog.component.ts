@@ -1,11 +1,11 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DialogView } from '../../../Features/shared/Models/dialog-view.model';
 import { DialogModel } from '../../../Features/shared/Models/dialog.model';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { noneMatchStringArrayValidator } from '../../../Validators/string.validator';
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-string-input-dialog',
@@ -15,7 +15,6 @@ import { CommonModule, JsonPipe } from '@angular/common';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    JsonPipe,
   ],
   templateUrl: './string-input-dialog.component.html',
   styleUrl: './string-input-dialog.component.css',
@@ -28,7 +27,7 @@ export class StringInputDialogComponent implements DialogView, OnInit {
   ngOnInit(): void {
     this.data.disabled = true;
     this.inputControl = new FormControl(
-      '',
+      this.data.input.value,
       noneMatchStringArrayValidator(this.data.input.invalidateNames)
     );
   }

@@ -3,6 +3,9 @@
     <app-searchable-listing-items
       class="col-md-4"
       [items]="items"
+      (addItem)="onAddItem($event)"
+      (editItem)="onEditItem($event)"
+      (deleteItem)="onDeleteItem($event)"
     />
   </div>
 </div>

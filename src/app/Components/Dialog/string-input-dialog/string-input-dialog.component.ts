@@ -43,6 +43,6 @@ export class StringInputDialogComponent implements DialogView, OnInit {
   }
 
   onOkClicked() {
-    return;
+    return this.inputControl.value;
   }
 }

@@ -14,7 +14,7 @@
 }
 
 #search-input {
-  width: 250px;
+  max-width: 250px;
   padding: 8px;
   font-size: 0.9em;
   border: 1px solid #ddd;

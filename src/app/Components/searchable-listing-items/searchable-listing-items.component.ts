@@ -78,7 +78,10 @@ export class SearchableListingItemsComponent implements OnInit {
         '400px'
       )
       .subscribe({
-        next: console.log,
+        next: (itemName) => {
+          if(!itemName) return;
+          this.addItem.emit(itemName);
+        }
       });
     // this.items.push(this.searchTerm);
     // this.filteredItems = [...this.items];
